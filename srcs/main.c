@@ -6,7 +6,7 @@
 /*   By: ftreand <marvin@le-101.fr>                 +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/01/15 15:57:27 by ftreand      #+#   ##    ##    #+#       */
-/*   Updated: 2019/01/16 18:24:18 by ftreand     ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/01/18 19:57:28 by ftreand     ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,9 +57,16 @@ int		manage_entry(t_sh *sh, t_tool *tool)
 char	*manage_buf(t_tool *tool)
 {
 	char *tmp;
-//	char *tmp1;
+	int i;
 
+	i = 0;
+
+	i = ft_strlen(tool->buf + 1);
+	ok
+	printf("i = %d\n", i);
 	tmp = ft_strdup(tool->tmp);
+	free(tool->buf);
+	printf("tmp = %s\n", tmp);
 	return(tmp);
 }
 
@@ -75,15 +82,12 @@ int		main(void)
 	{
 		tool.tmp[tool.ret] = '\0';
 		tool.buf = manage_buf(&tool);
-	//	printf("buf = %s\n", tool.buf);
 		if (*tool.tmp == '\n')
 			break ;
 		*tool.tmp >= 32 && *tool.tmp == 127 ? ft_putstr("del") :
 			ft_putchar(*tool.tmp);
-//		printf("buf = %s\n", tool.buf);
 //		if (!manage_entry(&sh, &tool))
 //			return (0);
-//		printf("cmd = %d\n", tool.cmd);
 		ft_bzero(tool.tmp, 4096);
 	}
 	printf("tool buf = %s\n", tool.buf);
